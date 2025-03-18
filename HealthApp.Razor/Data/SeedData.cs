@@ -34,6 +34,10 @@ namespace HealthApp.Razor.Data
                     await userManager.CreateAsync(user, password);
                     await userManager.AddToRoleAsync(user, "Admin");
                 }
+
+
+
+
             }
         }
     }
