@@ -33,14 +33,14 @@ namespace HealthApp.Razor.Data
                         await roleManager.CreateAsync(new IdentityRole(role));
                     }
                 }
-                string adminUserName = "admin@localhost";
-                string adminUserEmail = "admin@localhost";
+                string adminUserName = "admin@healthapp.com";
+                string adminUserEmail = "admin@healthapp.com";
                 string genericPassword = "Letmein01*";
 
                 if (await userManager.FindByEmailAsync(adminUserEmail) == null)
                 {
                   
-                    var user = new IdentityUser { UserName = adminUserEmail, Email = adminUserEmail, EmailConfirmed = true };
+                    var user = new IdentityUser { UserName = adminUserName, Email = adminUserEmail, EmailConfirmed = true };
                     await userManager.CreateAsync(user, genericPassword);
                     await userManager.AddToRoleAsync(user, "Admin");
                 }
