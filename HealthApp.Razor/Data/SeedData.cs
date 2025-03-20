@@ -45,6 +45,29 @@ namespace HealthApp.Razor.Data
                     await userManager.AddToRoleAsync(user, "Admin");
                 }
 
+                string doctorUserName = "doctor@healthapp.com";
+                string doctorUserEmail = "doctor@healthapp.com";
+                
+                if (await userManager.FindByEmailAsync(doctorUserEmail) == null)
+                {
+
+                    var user = new IdentityUser { UserName = doctorUserName, Email = doctorUserEmail, EmailConfirmed = true };
+                    await userManager.CreateAsync(user, genericPassword);
+                    await userManager.AddToRoleAsync(user, "Doctor");
+                }
+
+                string patientUserName = "patient@healthapp.com";
+                string patientUserEmail = "patient@healthapp.com";
+
+                if (await userManager.FindByEmailAsync(patientUserEmail) == null)
+                {
+
+                    var user = new IdentityUser { UserName = patientUserName, Email = patientUserEmail, EmailConfirmed = true };
+                    await userManager.CreateAsync(user, genericPassword);
+                    await userManager.AddToRoleAsync(user, "Patient");
+                }
+
+
             }
 
         }
