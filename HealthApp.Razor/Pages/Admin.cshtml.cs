@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
 namespace HealthApp.Razor.Pages
 {
     [Authorize(Roles ="Admin")]
     public class AdminModel : PageModel
     {
-        public string Name { get; set; }
+        public string UserId { get; set; }
         public void OnGet()
         {
-            Name = "Test";
+            UserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
     }
 }
