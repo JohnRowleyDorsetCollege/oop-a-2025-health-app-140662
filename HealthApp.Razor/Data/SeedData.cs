@@ -42,7 +42,7 @@ namespace HealthApp.Razor.Data
                   
                     var user = new IdentityUser { UserName = adminUserName, Email = adminUserEmail, EmailConfirmed = true };
                     await userManager.CreateAsync(user, genericPassword);
-                    await userManager.AddToRoleAsync(user, "Admin");
+                    await userManager.AddToRoleAsync(user, HealthAppRoles.Admin);
                 }
 
                 string doctorUserName = "doctor@healthapp.com";
@@ -53,7 +53,7 @@ namespace HealthApp.Razor.Data
 
                     var user = new IdentityUser { UserName = doctorUserName, Email = doctorUserEmail, EmailConfirmed = true };
                     await userManager.CreateAsync(user, genericPassword);
-                    await userManager.AddToRoleAsync(user, "Doctor");
+                    await userManager.AddToRoleAsync(user, HealthAppRoles.Doctor);
                 }
 
                 string patientUserName = "patient@healthapp.com";
@@ -64,7 +64,7 @@ namespace HealthApp.Razor.Data
 
                     var user = new IdentityUser { UserName = patientUserName, Email = patientUserEmail, EmailConfirmed = true };
                     await userManager.CreateAsync(user, genericPassword);
-                    await userManager.AddToRoleAsync(user, "Patient");
+                    await userManager.AddToRoleAsync(user, HealthAppRoles.Patient);
                 }
 
 

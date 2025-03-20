@@ -7,9 +7,10 @@ namespace HealthApp.Razor.Pages
     [Authorize(Roles ="Admin")]
     public class AdminModel : PageModel
     {
+        public string Name { get; set; }
         public void OnGet()
         {
-     
+            Name = "Test";
         }
     }
 }
