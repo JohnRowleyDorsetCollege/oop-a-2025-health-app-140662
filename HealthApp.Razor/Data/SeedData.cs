@@ -39,7 +39,7 @@ namespace HealthApp.Razor.Data
 
                 if (await userManager.FindByEmailAsync(adminUserEmail) == null)
                 {
-                  
+
                     var user = new IdentityUser { UserName = adminUserName, Email = adminUserEmail, EmailConfirmed = true };
                     await userManager.CreateAsync(user, genericPassword);
                     await userManager.AddToRoleAsync(user, HealthAppRoles.Admin);
@@ -47,7 +47,7 @@ namespace HealthApp.Razor.Data
 
                 string doctorUserName = "doctor@healthapp.com";
                 string doctorUserEmail = "doctor@healthapp.com";
-                
+
                 if (await userManager.FindByEmailAsync(doctorUserEmail) == null)
                 {
 
